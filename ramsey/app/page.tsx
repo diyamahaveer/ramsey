@@ -5,10 +5,10 @@ import NavBar from "./NavBar";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-primary-brown min-h-screen flex items-start justify-center realtive w-full">
-      <div className="bg-secondary-tan mx-10 mt-10 shadow-lg max-w-3lg w-full">
-        <NavBar/>
-        <Hero/>
+    <main className="bg-primary-brown min-h-screen relative w-full">
+      <div className="shadow-lg w-full">
+        <NavBar />
+        <Hero />
       </div>
     </main>
   );

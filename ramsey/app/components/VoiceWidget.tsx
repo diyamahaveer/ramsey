@@ -85,6 +85,7 @@ export default function VoiceWidget() {
                 body: dataBuffer!
             }).then((response: AxiosResponse) => {
                 const data = response.data;
+                console.log(data)
             })
             setDataBuffer(null);
         }
