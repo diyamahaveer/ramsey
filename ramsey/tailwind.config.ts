@@ -8,12 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "black-100": "#2B2C35",
+        "primary-brown": {
+          DEFAULT: "#AF9D8F",
+        },
+        "secondary-tan": "#FFFDF1",
+        "orange": {
+          DEFAULT: "#F86900",
+        },
+        grey: "#747A88",
+      },
+      padding: {
+        'nav': '98px',
+
       },
     },
   },
   plugins: [],
 };
+
 export default config;
