@@ -1,3 +1,4 @@
+
 //import Image from "next/image";
 import Hero from "./Hero";
 import NavBar from "./NavBar";
