@@ -42,8 +42,12 @@ const Hero = () => {
               <div className="hero__image-overlay" />
             </div>
         </div>
-    </div>
-    );
+        <div className="banner bg-gray-300 shadow-lg flex items-center justify-center">
+
+        </div>
+
+      </div>
+  );
 };
 
 export default Hero;

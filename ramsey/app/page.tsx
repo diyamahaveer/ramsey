@@ -1,14 +1,27 @@
-
+"use client"
 //import Image from "next/image";
+import CuratedList from "./components/CuratedList";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
+import React, { useState } from 'react';
 
 export default function Home() {
+  const [isSearching, setIsSearching] = useState(false);
+
+  function search(enable: boolean) {
+    setIsSearching(enable);
+  }
+
   return (
-    <main className="bg-primary-brown min-h-screen relative w-full overflow-hidden">
-      <div className="shadow-lg w-full bg-primary-tan">
-        <NavBar />
-        <Hero/>
+    <main className="bg-primary-brown min-h-screen relative w-full">
+      <div className="shadow-lg w-full">
+        <NavBar search={search} />
+        {
+          isSearching ?
+            <CuratedList />
+            :
+            <Hero />
+        }
       </div>
     </main>
   );
