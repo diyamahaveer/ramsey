@@ -3,25 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Recipe from './Recipe'
 
-interface CuratedListProps {
-    changeView: (state: number) => void,
-    changeURL: (url: string) => void,
-}
-export default function CuratedList({ changeView, changeURL }: CuratedListProps) {
-    const defaultProps = {
-        "title": "How to...Make a Perfect Fried Egg",
-        "thumbnail": "https://i.ytimg.com/vi_webp/J5_HmfZyhKo/sddefault.webp",
-        "ingredients": [
-            "eggs",
-            "butter",
-            "salt",
-            "pepper"
-        ],
-        "duration": "5-7 minutes",
-        "calories": "180-220 kcal",
-        "url": "https://www.youtube.com/watch?v=J5_HmfZyhKo"
-    }
-
 interface RecipeData {
   title: string;
   thumbnail: string;
@@ -47,7 +28,7 @@ export default function CuratedList({ changeView, changeURL, query }: CuratedLis
         try {
           setLoading(true);
           const response = await axios.get(
-            `http://10.36.135.93:8080/api/search/?query=${query}`
+            `http://10.37.118.181:8080/api/search/?query=${query}`
           );
           setRecipes(response.data.response);
           console.log(response.data);

@@ -3,6 +3,22 @@ import VoiceWidget from "./VoiceWidget";
 import Timer from "./Timer";
 
 let player;
+
+function callbackFunc(json) {
+    if (json.action === "PAUSE") {
+        player.pauseVideo();
+        console.log("Pausing video");
+    } else if (json.action === "PLAY") {
+        player.playVideo();
+    } else if (json.action === "REWIND") {
+        player.seekTo(player.getCurrentTime() - json.seconds, true);
+    } else if (json.action === "FORWARD") {
+        player.seekTo(player.getCurrentTime() + json.seconds, true);
+    } else {
+        console.log("Neither, no action.");
+    }
+}
+
 export default function Player({ url }) {
     const [intervalObj, setIntervalObj] = useState(null);
     const [currentTime, setTime] = useState(0);
@@ -45,7 +61,7 @@ export default function Player({ url }) {
             <div className="w-full flex flex-col items-center mx-auto pt-40">
                 <div id="player"></div>
             </div>
-            <VoiceWidget></VoiceWidget>
+            <VoiceWidget callback={callbackFunc}></VoiceWidget>
             <div className="absolute right-[27.5%]">
                 <Timer url={url} time={currentTime} />
             </div>

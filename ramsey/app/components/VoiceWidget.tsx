@@ -4,7 +4,7 @@ import { usePorcupine } from "@picovoice/porcupine-react";
 import axios, { AxiosResponse } from "axios";
 
 const LISTEN_WAIT_SEC = 2000;
-export default function VoiceWidget() {
+export default function VoiceWidget({ callback }) {
     const {
         keywordDetection,
         isLoaded,
@@ -75,21 +75,16 @@ export default function VoiceWidget() {
 
     useEffect(() => {
         if (dataBuffer) {
-            const audio = new Audio();
-            audio.src = URL.createObjectURL(dataBuffer!);
-            audio.play();
-
-            axios
-                .post("http://10.37.118.181:8080/api/audio/", dataBuffer!, {
-                    headers: {
-                        "Content-Type": "application/octet-stream",
-                        "Content-Length": JSON.stringify(dataBuffer!).length,
-                    },
-                })
-                .then((response: AxiosResponse) => {
-                    const data = response.data;
-                    console.log(data);
-                });
+            axios.post("http://10.37.118.181:8080/api/audio/", dataBuffer!, {
+                headers: {
+                    "Content-Type": "application/octet-stream",
+                    "Content-Length": JSON.stringify(dataBuffer!).length,
+                },
+            }).then((response: AxiosResponse) => {
+                const data = response.data;
+                console.log(data);
+                callback(JSON.parse(data.response));
+            });
             setDataBuffer(null);
         }
     }, [dataBuffer]);

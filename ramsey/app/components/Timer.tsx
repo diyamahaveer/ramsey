@@ -16,6 +16,7 @@ export default function Timer({ url, time }: TimerProps) {
 
     useEffect(() => {
         for (const timer of timers) {
+            console.log(Math.round(timer.timestamp), Math.round(time))
             if (Math.round(timer.timestamp) === Math.round(time)) {
                 setTrigger(true);
                 // Trigger some audio change
