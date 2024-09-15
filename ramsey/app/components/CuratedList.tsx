@@ -1,7 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Recipe from "./Recipe";
+import Recipe from './Recipe'
+
+interface CuratedListProps {
+    changeView: (state: number) => void,
+    changeURL: (url: string) => void,
+}
+export default function CuratedList({ changeView, changeURL }: CuratedListProps) {
+    const defaultProps = {
+        "title": "How to...Make a Perfect Fried Egg",
+        "thumbnail": "https://i.ytimg.com/vi_webp/J5_HmfZyhKo/sddefault.webp",
+        "ingredients": [
+            "eggs",
+            "butter",
+            "salt",
+            "pepper"
+        ],
+        "duration": "5-7 minutes",
+        "calories": "180-220 kcal",
+        "url": "https://www.youtube.com/watch?v=J5_HmfZyhKo"
+    }
 
 interface RecipeData {
   title: string;
@@ -14,10 +33,11 @@ interface RecipeData {
 
 interface CuratedListProps {
   changeView: (state: number) => void;
+  changeURL: (url: string) => void;
   query: string;
 }
 
-export default function CuratedList({ changeView, query }: CuratedListProps) {
+export default function CuratedList({ changeView, changeURL, query }: CuratedListProps) {
   const [recipes, setRecipes] = useState<RecipeData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -63,6 +83,7 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
                   calories={recipe.calories}
                   url={recipe.url}
                   changeView={changeView}
+                  changeURL={changeURL}
                 />
               ))
             )}

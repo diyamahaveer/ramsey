@@ -15,6 +15,13 @@ export default function SearchBar({ search }: SearchBarProps) {
 
       // Call the onSearch function with the query
       search(query);
+      // Send HTTP request for the content and set the queryContent prop to populate
+      // on the recipe search screen.
+      const response = await axios.get(
+        `http://10.37.118.181:8080/api/search?query=${query}`
+      );
+      console.log(response);
+      // console.log(`http://10.37.116.66:8080/api/search/?query=${query}`);
 
 
       // You can also handle the API request here if needed

@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 export default function Home() {
   const [view, setViewState] = useState<number>(0);
   const [query, setQuery] = useState<string>("");
+  const [selectedURL, selectURL] = useState("");
 
   function changeView(state: number) {
     setViewState(state);
@@ -18,14 +19,18 @@ export default function Home() {
     changeView(1);
   }
 
+  function changeURL(url: string) {
+    selectURL(url);
+  }
+
   function getView() {
     switch (view) {
       case 0:
         return <Hero />;
       case 1:
-        return <CuratedList changeView={changeView} query={query} />;
+        return <CuratedList changeView={changeView} changeURL={changeURL} query={query} />
       case 2:
-        return <Player />;
+        return <Player url={selectedURL} />
       default:
         return <Hero />;
     }
@@ -37,7 +42,6 @@ export default function Home() {
         <NavBar search={handleSearch} />
         {getView()}
       </div>
-      <script src="https://www.youtube.com/iframe_api"></script>
     </main>
   );
 }

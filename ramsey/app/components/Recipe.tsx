@@ -8,11 +8,12 @@ export interface RecipeProps {
   duration: string,
   calories: string,
   url: string,
-  changeView: (state: number) => void
+  changeView: (state: number) => void,
+  changeURL: (url: string) => void
 }
-const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, changeView }: RecipeProps) => {
+const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, changeView, changeURL }: RecipeProps) => {
   return (
-    <div className='flex flex-row gap-[1rem] w-auto rounded-[2em] border-[1px] border-black px-[2rem] py-[1rem] shadow-lg shadow-green-100 hover:shadow-4xl hover:border-[2px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer' onClick={() => { changeView(2) }}>
+    <div className='flex flex-row gap-[1rem] w-auto rounded-[2em] border-[1px] border-black px-[2rem] py-[1rem] shadow-lg shadow-green-100 hover:shadow-4xl hover:border-[2px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer' onClick={() => { changeView(2); changeURL(url); }}>
       <img alt="food image" src={thumbnail} className='w-[228px] h-[228px] object-cover' />
       <div className='flex flex-col justify-center'>
         <div className='font-bold text-[1.5rem]'>
@@ -27,7 +28,7 @@ const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, change
               {duration}
             </div>
             <div className='flex flex-row items-center text-[1.1rem] pr-2 whitespace-pre'>
-                <p>Calories:  </p>
+              <p>Calories:  </p>
               <div className='border-[#F86900] rounded-2xl border-[1.5px] p-1.5'>
                 {calories}
               </div>
