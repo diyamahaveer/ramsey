@@ -49,11 +49,22 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
       </div>
       <div className="w-[70%]">
         <div className="pt-20 pl-32">
-          <div className="flex flex-col items-left bg-mx-40 curosr pointer animate-fadeInLeftRecipe"></div>
+          
             {loading ? (
-              <p>Loading...</p>
+            <div className="flex items-center justify-center ml-40 min-w-full">
+                <iframe
+                    src="https://giphy.com/embed/H96YgqpevPlew2m68m"
+                    width="480"
+                    height="480"
+                    className="giphy-embed"
+                    allowFullScreen
+                    title="Load"
+                ></iframe>
+          </div>
+          
             ) : (
               recipes.map((recipe, index) => (
+                <div className="flex flex-col items-left bg-mx-40 cursor pointer animate-fadeInLeftRecipe">
                 <Recipe
                   key={index}
                   title={recipe.title}
@@ -64,14 +75,17 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
                   url={recipe.url}
                   changeView={changeView}
                 />
+                </div>
               ))
             )}
+            
           </div>
         </div>
       </div>
  
   );
 }
+
 
 
 // return (
@@ -107,4 +121,5 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
             
 //         </div>
 //     )
-// }
+// } <div class="flex justify-center items-center min-h-screen bg-gray-100">
+ 
