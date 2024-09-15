@@ -42,20 +42,69 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
     }
   }, [query]);
 
-    return (
-        <div className="hero min-h-screen bg-secondary-tan flex flex-col items-center pt-10">
-            <div className="w-full flex flex-col items-center mx-auto pt-40">
-                hello world test
+  return (
+    <div className="min-h-screen bg-primary-tan flex flex-col justify-start items-left pt-10">
+      <div className="results_title animate-fadeInLeft">
+        Here are your results...
+      </div>
+      <div className="w-[70%]">
+        <div className="pt-20 pl-32">
+          <div className="flex flex-col items-left bg-mx-40 curosr pointer animate-fadeInLeftRecipe"></div>
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              recipes.map((recipe, index) => (
                 <Recipe
-                    title={defaultProps.title}
-                    thumbnail={defaultProps.thumbnail}
-                    ingredients={defaultProps.ingredients}
-                    duration={defaultProps.duration}
-                    calories={defaultProps.calories}
-                    url={defaultProps.url}
-                    changeView={changeView}
+                  key={index}
+                  title={recipe.title}
+                  thumbnail={recipe.thumbnail}
+                  ingredients={recipe.ingredients}
+                  duration={recipe.duration}
+                  calories={recipe.calories}
+                  url={recipe.url}
+                  changeView={changeView}
                 />
-            </div>
+              ))
+            )}
+          </div>
         </div>
-    )
+      </div>
+ 
+  );
 }
+
+
+// return (
+//         <div className="min-h-screen bg-primary-tan flex flex-col justify-start items-left pt-10">
+//             <div className="results_title animate-fadeInLeft">
+//                 Here are your results...
+//             </div>
+//             <div className="w-[70%]">
+//                 <div className="pt-20 pl-32">
+//                     <div className="flex flex-col items-left bg-mx-40 curosr pointer animate-fadeInLeftRecipe">
+//                         <Recipe
+//                             title={defaultProps.title}
+//                             thumbnail={defaultProps.thumbnail}
+//                             ingredients={defaultProps.ingredients}
+//                             duration={defaultProps.duration}
+//                             calories={defaultProps.calories}
+//                             url={defaultProps.url}
+//                             changeView={changeView}
+//                         />
+//                     </div>
+//                 </div>
+//                 /*
+//             <div className="recipe-sorting flex flex-col mx-40 pt-20">
+//                 <div className="filters results_title ">
+                    
+//                 </div>
+                
+
+//             </div>
+
+
+//             </div>
+            
+//         </div>
+//     )
+// }
