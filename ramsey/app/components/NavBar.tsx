@@ -11,9 +11,9 @@ const NavBar = ({ search }) => {
               Ramsey
               </p>
                 <SearchBar search={search} ></SearchBar>
-              <p className='profile_pic'>
-                Profile Picture
-              </p>
+                <div class="flex items-center justify-center w-14 h-14 rounded-full bg-orange text-white text-2xl font-bold cursor-pointer">
+                  LW
+                </div>
           </nav>
         </div>
     </header>

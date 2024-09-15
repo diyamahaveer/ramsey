@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <div className='hero bg-primary-tan px-36 max-w-full'>
-      <div className='grid grid-cols-2 gap-4 gap-x-0 pt-40 py-4 px-1 border-2 border-black-100 max-w-6xl mt-5 items-top max-h-128'>
+      <div className='grid grid-cols-2 gap-4 gap-x-0 pt-40 py-4 px-1 border-2 border-black-100 max-w-6xl mt-5 items-top max-h-40'>
         <div className="hero__text">
         <CustomButton
             title="Popular Pasta Recipes in Canada"
@@ -19,7 +19,7 @@ const Hero = () => {
             handleClick={handleScroll}
           />
           
-          <h1 className='hero__title -ml-24 text-left hover:text-orange'>
+          <h1 className='hero__title -ml-24 font-bri text-left hover:text-orange'>
             Fresh Pasta <br/> 
           </h1>
           <h1 className='hero__title2 -ml-24 text-left'>
@@ -40,13 +40,8 @@ const Hero = () => {
               <div className="hero__image w-full h-full relative -mt-40 ml-1">
                 <Image src={pastaImage} alt="pasta" width={600} height={300}className="object-contain"/>
               </div>
-              <div className="hero__image-overlay" />
             </div>
         </div>
-        <div className="banner bg-gray-300 shadow-lg flex items-center justify-center">
-
-        </div>
-
       </div>
   );
 };

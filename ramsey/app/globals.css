@@ -11,6 +11,13 @@
   font-family: "Manrope", sans-serif;
 }
 
+@font-face {
+  font-family: "Roashe";
+  src: url("../public/fonts/roashe-font/RoashePersonalUse-jEa4M.otf");
+
+  font-family: "Bri";
+  src: url("../public/fonts/brioche-serif-font/Brioche\ DEMO.otf");
+}
 /* START: General styles */
 .max-width {
   @apply max-w-[1440px] mx-auto;
@@ -84,4 +91,8 @@
 
 .home__error-container {
   @apply mt-16 flex justify-center items-center flex-col gap-2;
+}
+
+.results_title {
+  @apply 2xl:text-[72px] sm:text-[30px] text-[24px] pl-36 font-extrabold;
 }
