@@ -13,7 +13,7 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-primary-brown min-h-screen relative w-full">
+    <main className="overflow-hidden bg-primary-brown min-h-screen relative w-full">
       <div className="shadow-lg w-full">
         <NavBar search={search} />
         {

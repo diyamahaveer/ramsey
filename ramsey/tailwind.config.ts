@@ -18,7 +18,7 @@ module.exports = {
           100: "#F5F8FF",
         },
         "secondary-brown": "#AF9D8F",
-        "green":{
+        "green": {
           DEFAULT: "#094C3B"
         },
         "orange": {
@@ -29,7 +29,7 @@ module.exports = {
       backgroundImage: {
         'pattern': "url('/pattern.png')",
         'hero-bg': "url('/hero-bg.png')"
-      }
+      },
     },
   },
   plugins: [],
