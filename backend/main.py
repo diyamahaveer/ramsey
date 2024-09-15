@@ -20,13 +20,12 @@ def obtain_transcript_with_timestamps(video_id):
             text = entry["text"]
             combined_text += f"{text} "
 
-        # Get the AI-generated JSON from Groq (with ingredients, time, and calories)
         analyzed_data = analyze(combined_text)
 
-        # Convert the Groq output (which is a JSON string) to a Python dictionary
+        # convert the Groq output (which is a JSON string) to a Python dictionary
         recipe_data = json.loads(analyzed_data)
 
-        # Extract the relevant fields
+        # extract
         ingredients = recipe_data.get("ingredients", [])
         duration = recipe_data.get("time", "")
         calories = recipe_data.get("calories", "")
@@ -35,11 +34,11 @@ def obtain_transcript_with_timestamps(video_id):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-        return [], "", ""  # Return empty/default values on error
+        return [], "", ""
 
 
 def get_youtube_search_results(query, max_results=2):
-    response_data = []  # List to hold each video data
+    response_data = []
 
     ydl_opts = {
         "quiet": True,
@@ -57,7 +56,7 @@ def get_youtube_search_results(query, max_results=2):
         video_title = entry["title"]
         thumbnail_url = entry["thumbnail"]
 
-        # Get transcript and extract ingredients, duration, and calories for each video
+        # get transcript and extract ingredients, duration, and calories for each video
         video_id = get_video_id(video_url)
         if video_id:
             ingredients, duration, calories = obtain_transcript_with_timestamps(
@@ -67,25 +66,26 @@ def get_youtube_search_results(query, max_results=2):
             print("Invalid YouTube URL.")
             continue
 
-        # Create video entry dictionary
         video_data = {
             "title": video_title,
             "thumbnail": thumbnail_url,
-            "ingredients": ingredients,  # List of ingredients
-            "duration": duration,  # Duration from the analysis
-            "calories": calories,  # Calories from the analysis
+            "ingredients": ingredients,
+            "duration": duration,
+            "calories": calories,
         }
 
-        # Add the video entry to the response list
         response_data.append(video_data)
 
-    # Construct the final response JSON
+    # combine the final json
     response_json = {"response": response_data}
 
-    # Print the JSON response
+    # print for debugging 
     print(json.dumps(response_json, indent=4))
+    return response_json
 
+def endpoint_one(query:str):
+    get_youtube_search_results(query)
 
 if __name__ == "__main__":
     keywords = input("Enter keywords to search: ")
-    get_youtube_search_results(keywords)
+    endpoint_one(keywords)
