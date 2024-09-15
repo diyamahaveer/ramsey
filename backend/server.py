@@ -30,7 +30,7 @@ def video():
 @app.route('/api/audio/', methods=['POST'])
 @cross_origin()
 def audio():
-    return convertVoiceToTextAndInterpretCommand()
+    return convertVoiceToTextAndInterpretCommand(request)
 
 if __name__ == '__main__':
     app.run(host="10.36.135.93", debug=True, port=8080)

@@ -2,16 +2,16 @@ from dotenv import load_dotenv
 from groq import Groq
 from uuid import uuid4
 load_dotenv()
-
+from flask import jsonify
 
 # Initialize the Groq client
 client = Groq()
 
-def convertVoiceToTextAndInterpretCommand():
+def convertVoiceToTextAndInterpretCommand(request):
     print("HELLO")
     buffer = request.get_data()
     # write this to a file called audio.webm
-    filename = f"audio{uuid4()}.webm"
+    filename = f"audio/audio{uuid4()}.webm"
     with open(filename, "wb") as f:
         f.write(buffer)
     
