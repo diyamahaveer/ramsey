@@ -16,10 +16,10 @@ export default function Home() {
   function getView() {
     switch (view) {
       case 0:
-        return <Hero/>
+        return <Hero />
       case 1:
-        return <CuratedList changeView={changeView}/>
-      case 2: 
+        return <CuratedList changeView={changeView} />
+      case 2:
         return <Player />
       default:
         return <Hero />
@@ -35,6 +35,8 @@ export default function Home() {
           getView()
         }
       </div>
+      <script src="https://www.youtube.com/iframe_api">
+      </script>
     </main>
   );
 }
