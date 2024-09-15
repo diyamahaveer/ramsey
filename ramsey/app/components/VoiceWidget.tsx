@@ -81,8 +81,11 @@ export default function VoiceWidget() {
             audio.src = URL.createObjectURL(dataBuffer!);
             audio.play();
 
-            axios.post("https://127.0.0.1:8000/test", {
-                body: dataBuffer!
+            axios.post("http://10.37.116.66:8080/api/audio/", dataBuffer!, {
+                headers: {
+                    "Content-Type": "application/octet-stream",
+                    "Content-Length": JSON.stringify(dataBuffer!).length
+                }
             }).then((response: AxiosResponse) => {
                 const data = response.data;
                 console.log(data)

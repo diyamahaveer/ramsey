@@ -1,12 +1,12 @@
 "use client";
-import Link from 'next/link';
-import Image from 'next/image';
+// import Link from 'next/link';
+// import Image from 'next/image';
 import React from 'react';
 
 const Hero = () => {
-    // const handleScroll = () => {
-    //     // Scroll handling logic
-    // };
+  // const handleScroll = () => {
+  //     // Scroll handling logic
+  // };
 
   return (
     <div className="hero min-h-screen bg-secondary-tan flex flex-col items-center pt-10">
@@ -37,13 +37,13 @@ const Hero = () => {
 
           </div>
         </div>
-          <div className="banner bg-gray-300 shadow-lg flex items-center justify-center">
-          
-          </div>
-    
+        <div className="banner bg-gray-300 shadow-lg flex items-center justify-center">
+
         </div>
+
       </div>
-    );
+    </div>
+  );
 };
 
 export default Hero;
