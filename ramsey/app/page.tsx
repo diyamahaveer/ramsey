@@ -1,11 +1,11 @@
 
 //import Image from "next/image";
-import Hero from "./Hero";
-import NavBar from "./NavBar";
+import Hero from "./components/Hero";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-primary-brown min-h-screen flex items-start justify-center realtive w-full">
+    <main className="overflow-hidden bg-primary-brown min-h-screen flex items-start justify-center relative w-full">
       <div className="bg-secondary-tan mx-10 mt-10 shadow-lg max-w-3lg w-full">
         <NavBar/>
         <Hero/>

@@ -12,7 +12,6 @@ const config: Config = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        "black-100": "#2B2C35",
         "primary-brown": {
           DEFAULT: "#AF9D8F",
         },
