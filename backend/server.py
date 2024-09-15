@@ -33,4 +33,4 @@ def audio():
     return convertVoiceToTextAndInterpretCommand()
 
 if __name__ == '__main__':
-    app.run(host="10.37.116.66", debug=True, port=8080)
+    app.run(host="10.36.135.93", debug=True, port=8080)

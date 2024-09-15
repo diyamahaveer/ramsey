@@ -1,26 +1,25 @@
 "use client";
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-export default function SearchBar({ search }) {
-  async function handleKeyPress(evt) {
+interface SearchBarProps {
+  search: (query: string) => void;
+}
+
+export default function SearchBar({ search }: SearchBarProps) {
+  async function handleKeyPress(evt: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (evt.key === "Enter") {
       evt.preventDefault();
 
       const query = evt.target.value;
-      evt.target.value = "";
-      console.log(search["search"]);
-      search(1);
+      (evt.target as HTMLTextAreaElement).value = "";
 
-      // Send HTTP request for the content and set the queryContent prop to populate
-      // on the recipe search screen.
-      const response = await axios.get(
-        `http://10.37.116.66:8080/api/search/?query=${query}`
-      );
-      console.log(response);
-      // console.log(`http://10.37.116.66:8080/api/search/?query=${query}`);
+      // Call the onSearch function with the query
+      search(query);
 
-      // axios.get(`http://10.37.116.66:8080/api/search/?query=${query}`)
+
+      // You can also handle the API request here if needed
+      // const response = await axios.get(`http://10.37.116.66:8080/api/search/?query=${query}`);
+      // console.log(response);
     }
   }
 
