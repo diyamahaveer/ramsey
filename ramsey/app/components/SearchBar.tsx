@@ -11,7 +11,7 @@ export default function SearchBar({ search }) {
             const query = evt.target.value;
             evt.target.value = ""
             console.log(search["search"])
-            search(true);
+            search(1);
 
             // Send HTTP request for the content and set the queryContent prop to populate
             // on the recipe search screen.

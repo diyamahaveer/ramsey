@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import Recipe from "./Recipe"
-export default function CuratedList() {
+export default function CuratedList({changeView}) {
     const defaultProps = {
         "title": "How to...Make a Perfect Fried Egg",
         "thumbnail": "https://i.ytimg.com/vi_webp/J5_HmfZyhKo/sddefault.webp",
@@ -27,6 +27,7 @@ export default function CuratedList() {
                     duration={defaultProps.duration}
                     calories={defaultProps.calories}
                     url={defaultProps.url}
+                    changeView={changeView}
                 />
             </div>
         </div>
