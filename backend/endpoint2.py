@@ -10,10 +10,10 @@ def get_time(url):
     if video_id:
         chunks = YouTubeTranscriptApi.get_transcript(video_id)
         suggestions = get_time_suggestions(chunks)
-        print(suggestions)
+        return suggestions
 
 def endpoint_two(url: str):
-    get_time(url)
+    return get_time(url)
 
 
 if __name__ == "__main__":

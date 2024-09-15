@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Recipe from "./Recipe";
+import Recipe from './Recipe'
 
 interface RecipeData {
   title: string;
@@ -14,10 +14,11 @@ interface RecipeData {
 
 interface CuratedListProps {
   changeView: (state: number) => void;
+  changeURL: (url: string) => void;
   query: string;
 }
 
-export default function CuratedList({ changeView, query }: CuratedListProps) {
+export default function CuratedList({ changeView, changeURL, query }: CuratedListProps) {
   const [recipes, setRecipes] = useState<RecipeData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -27,7 +28,7 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
         try {
           setLoading(true);
           const response = await axios.get(
-            `http://10.36.135.93:8080/api/search/?query=${query}`
+            `http://10.37.118.181:8080/api/search/?query=${query}`
           );
           setRecipes(response.data.response);
           console.log(response.data);
@@ -74,6 +75,7 @@ export default function CuratedList({ changeView, query }: CuratedListProps) {
                   calories={recipe.calories}
                   url={recipe.url}
                   changeView={changeView}
+                  changeURL={changeURL}
                 />
                 </div>
               ))
