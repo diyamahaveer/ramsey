@@ -1,5 +1,4 @@
-"use client"
-//import Image from "next/image";
+"use client";
 import CuratedList from "./components/CuratedList";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
@@ -7,34 +6,38 @@ import Player from "./components/Player";
 import React, { useState } from 'react';
 
 export default function Home() {
-  const [view, setViewState] = useState(0);
+  const [view, setViewState] = useState<number>(0);
+  const [query, setQuery] = useState<string>("");
 
   function changeView(state: number) {
     setViewState(state);
   }
 
+  function handleSearch(query: string) {
+    setQuery(query);
+    changeView(1);
+  }
+
   function getView() {
     switch (view) {
       case 0:
-        return <Hero/>
+        return <Hero />;
       case 1:
-        return <CuratedList changeView={changeView}/>
-      case 2: 
-        return <Player />
+        return <CuratedList changeView={changeView} query={query} />;
+      case 2:
+        return <Player />;
       default:
-        return <Hero />
+        return <Hero />;
     }
   }
 
-  // isSearching ? <CuratedList /> : <Hero />;
   return (
     <main className="overflow-hidden bg-primary-brown min-h-screen relative w-full">
       <div className="shadow-lg w-full">
-        <NavBar search={changeView} />
-        {
-          getView()
-        }
+        <NavBar search={handleSearch} />
+        {getView()}
       </div>
+      <script src="https://www.youtube.com/iframe_api"></script>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-interface RecipeProps {
+export interface RecipeProps {
   title: string,
   thumbnail: string,
   ingredients: string[],
