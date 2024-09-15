@@ -2,7 +2,7 @@ from urllib.parse import parse_qs, urlparse
 import yt_dlp
 from youtube_transcript_api import YouTubeTranscriptApi
 import json
-from analyze import analyze
+from analyze import get_summarization
 
 
 def get_video_id(youtube_url):
@@ -18,9 +18,11 @@ def obtain_transcript_with_timestamps(video_id):
         combined_text = ""
         for entry in transcript:
             text = entry["text"]
+            time = entry["start"]
+            # print(f"time: {time}, text: {text}")
             combined_text += f"{text} "
 
-        analyzed_data = analyze(combined_text)
+        analyzed_data = get_summarization(combined_text)
 
         # convert the Groq output (which is a JSON string) to a Python dictionary
         recipe_data = json.loads(analyzed_data)
@@ -72,6 +74,7 @@ def get_youtube_search_results(query, max_results=2):
             "ingredients": ingredients,
             "duration": duration,
             "calories": calories,
+            "url": video_url,
         }
 
         response_data.append(video_data)
