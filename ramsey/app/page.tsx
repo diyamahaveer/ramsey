@@ -35,8 +35,6 @@ export default function Home() {
           getView()
         }
       </div>
-      <script src="https://www.youtube.com/iframe_api">
-      </script>
     </main>
   );
 }
