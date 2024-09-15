@@ -5,9 +5,9 @@ import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-primary-brown min-h-screen flex items-start justify-center relative w-full">
-      <div className="bg-secondary-tan mx-10 mt-10 shadow-lg max-w-3lg w-full">
-        <NavBar/>
+    <main className="bg-primary-brown min-h-screen relative w-full">
+      <div className="shadow-lg w-full">
+        <NavBar />
         <Hero/>
       </div>
     </main>
