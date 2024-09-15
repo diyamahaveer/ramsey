@@ -5,8 +5,8 @@ import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
-    <main className="bg-primary-brown min-h-screen relative w-full">
-      <div className="shadow-lg w-full">
+    <main className="bg-primary-brown min-h-screen relative w-full overflow-hidden">
+      <div className="shadow-lg w-full bg-primary-tan">
         <NavBar />
         <Hero/>
       </div>
