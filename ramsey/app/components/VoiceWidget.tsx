@@ -4,7 +4,7 @@ import { usePorcupine } from "@picovoice/porcupine-react";
 import axios, { AxiosResponse } from "axios";
 
 const LISTEN_WAIT_SEC = 2000;
-export default function VoiceWidget({ player }) {
+export default function VoiceWidget({ callback }) {
   const {
     keywordDetection,
     isLoaded,
@@ -89,6 +89,7 @@ export default function VoiceWidget({ player }) {
         .then((response: AxiosResponse) => {
           const data = response.data;
           console.log(data);
+          callback(JSON.parse(data.response));
         });
       setDataBuffer(null);
     }
