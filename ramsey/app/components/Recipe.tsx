@@ -8,10 +8,11 @@ interface RecipeProps {
   duration: string,
   calories: string,
   url: string,
+  changeView: (state: number) => void
 }
-const Recipe = ({ title, thumbnail, ingredients, duration, calories, url }: RecipeProps) => {
+const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, changeView }: RecipeProps) => {
   return (
-    <div className='flex flex-row gap-[1rem] w-auto p-[2rem] rounded-[2em] border-[1px] border-black' onClick={() => { console.log("replace me!"); }}>
+    <div className='flex flex-row gap-[1rem] w-auto p-[2rem] rounded-[2em] border-[1px] border-black' onClick={() => {changeView(2)}}>
       <img alt="food image" src={thumbnail} className='object-cover relative size-72 rounded-lg' />
       <div className='flex flex-col justify-center'>
         <div className='font-bold text-[1.5rem]'>
