@@ -1,5 +1,9 @@
-<h2>Inspiration</h2>
+![image](https://github.com/user-attachments/assets/b805eba3-ef4d-455c-a4b9-3ca99fa5a5d4)
+![image](https://github.com/user-attachments/assets/e5848a2c-953e-4804-9380-a5dc017201c5)
+![image](https://github.com/user-attachments/assets/5306a00c-5f07-47cc-a6b0-a80d8da34a79)
 
+
+<h2>Inspiration</h2>
 For many college students, university life often means living alone and cooking for themselves for the first time. We've all experienced those chaotic moments in the kitchen—burnt meals, missed steps, or fumbling with our phones to follow a recipe video. The learning curve is real, and the frustration is common.
 
 That's why we created Ramsay, an AI cooking assistant designed to make cooking easier and more enjoyable. With Ramsay, users can play, pause, or navigate YouTube cooking videos using voice commands, eliminating the need to rush back and forth between the kitchen and their devices. This hands-free experience allows users to cook along seamlessly with the video, making it feel as if they're working with a real assistant who’s there to guide them.
