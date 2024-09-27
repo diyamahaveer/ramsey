@@ -9,7 +9,7 @@ export default function Timer({ url, time }: TimerProps) {
     const [timers, setTimers] = useState<{ timestamp: number, timer_duration: string }[]>([]);
     const [triggered, setTrigger] = useState(false);
     useEffect(() => {
-        axios.get(`http://10.37.118.181:8080/api/video?url=${url}`).then((response) => {
+        axios.get(`http://192.168.50.136:8080/api/video?url=${url}`).then((response) => {
             setTimers(response.data)
         });
     }, []);

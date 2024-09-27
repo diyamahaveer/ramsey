@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import loadingGIF from "../../public/images/loadingGIF.webp";
 import Recipe from './Recipe'
+import Image from "next/image";
 
 interface RecipeData {
   title: string;
@@ -28,7 +30,7 @@ export default function CuratedList({ changeView, changeURL, query }: CuratedLis
         try {
           setLoading(true);
           const response = await axios.get(
-            `http://10.37.118.181:8080/api/search/?query=${query}`
+            `http://192.168.50.136:8080/api/search/?query=${query}`
           );
           setRecipes(response.data.response);
           console.log(response.data);
@@ -49,23 +51,22 @@ export default function CuratedList({ changeView, changeURL, query }: CuratedLis
         Here are your results...
       </div>
       <div className="w-[70%]">
-        <div className="pt-20 pl-32">
+        <div className="pt-5 pl-32">
           
             {loading ? (
-            <div className="flex items-center justify-center ml-40 min-w-full">
-                <iframe
-                    src="https://giphy.com/embed/H96YgqpevPlew2m68m"
-                    width="480"
-                    height="480"
-                    className="giphy-embed"
-                    allowFullScreen
-                    title="Load"
-                ></iframe>
-          </div>
+            <div className="flex items-center justify-center ml-48 min-w-full">
+                <Image
+                src={loadingGIF}
+                alt="Loading..."
+                width="480"
+                height="480"
+                className="giphy-embed"
+                />
+            </div>
           
             ) : (
               recipes.map((recipe, index) => (
-                <div className="flex flex-col items-left bg-mx-40 cursor pointer animate-fadeInLeftRecipe">
+                <div className="flex flex-col items-left bg-mx-40 pb-5 cursor pointer animate-fadeInLeftRecipe">
                 <Recipe
                   key={index}
                   title={recipe.title}
@@ -87,41 +88,3 @@ export default function CuratedList({ changeView, changeURL, query }: CuratedLis
  
   );
 }
-
-
-
-// return (
-//         <div className="min-h-screen bg-primary-tan flex flex-col justify-start items-left pt-10">
-//             <div className="results_title animate-fadeInLeft">
-//                 Here are your results...
-//             </div>
-//             <div className="w-[70%]">
-//                 <div className="pt-20 pl-32">
-//                     <div className="flex flex-col items-left bg-mx-40 curosr pointer animate-fadeInLeftRecipe">
-//                         <Recipe
-//                             title={defaultProps.title}
-//                             thumbnail={defaultProps.thumbnail}
-//                             ingredients={defaultProps.ingredients}
-//                             duration={defaultProps.duration}
-//                             calories={defaultProps.calories}
-//                             url={defaultProps.url}
-//                             changeView={changeView}
-//                         />
-//                     </div>
-//                 </div>
-//                 /*
-//             <div className="recipe-sorting flex flex-col mx-40 pt-20">
-//                 <div className="filters results_title ">
-                    
-//                 </div>
-                
-
-//             </div>
-
-
-//             </div>
-            
-//         </div>
-//     )
-// } <div class="flex justify-center items-center min-h-screen bg-gray-100">
- 

@@ -75,7 +75,7 @@ export default function VoiceWidget({ callback }) {
 
     useEffect(() => {
         if (dataBuffer) {
-            axios.post("http://10.37.118.181:8080/api/audio/", dataBuffer!, {
+            axios.post("http://192.168.50.136:8080/api/audio/", dataBuffer!, {
                 headers: {
                     "Content-Type": "application/octet-stream",
                     "Content-Length": JSON.stringify(dataBuffer!).length,

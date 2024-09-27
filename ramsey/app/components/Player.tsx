@@ -27,8 +27,8 @@ export default function Player({ url }) {
 
     window.onYouTubeIframeAPIReady = () => {
         player = new YT.Player("player", {
-            height: "390",
-            width: "640",
+            height: "490",
+            width: "1000",
             videoId: id,
             playerVars: {
                 playsinline: 1,
@@ -58,7 +58,7 @@ export default function Player({ url }) {
 
     return (
         <div className="relative">
-            <div className="w-full flex flex-col items-center mx-auto pt-40">
+            <div className="w-full flex bg-primary-tan flex-col items-center mx-auto pt-10 pb-20">
                 <div id="player"></div>
             </div>
             <VoiceWidget callback={callbackFunc}></VoiceWidget>

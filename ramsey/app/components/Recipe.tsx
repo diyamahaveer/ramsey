@@ -27,7 +27,7 @@ const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, change
               <Image src="./clock.svg" alt="cooking duration" width={30} height={30} />
               {duration}
             </div>
-            <div className='flex flex-row items-center text-[1.1rem] pr-2 whitespace-pre'>
+            <div className='flex flex-row items-center text-[1.1rem] pr-3 whitespace-pre'>
               <p>Calories:  </p>
               <div className='border-[#F86900] rounded-2xl border-[1.5px] p-1.5'>
                 {calories}
@@ -36,7 +36,7 @@ const Recipe = ({ title, thumbnail, ingredients, duration, calories, url, change
           </div>
         </div>
 
-        <div className='flex flex-col pl-24 gap-y-2 text-xl font-bold text-[#7C7C7C]'>
+        <div className='flex flex-col pl-9 gap-y-2 text-xl font-bold text-[#7C7C7C]'>
           Ingredients
           <ul className='font-normal justify-content items-center text-base'>
             {
